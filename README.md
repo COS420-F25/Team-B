@@ -3,9 +3,9 @@
 # Team Roles
 **Project Manager:** Kate Martell <br>
 **Developer 1:** Isabel Layland <br>
-**Developer 2:** Nico Faragodumsch <br>
+**Developer 2:** Nico Farago Dumsch <br>
 **Designer:** Claire Kelley <br>
-# Meeting Schedule:
+# Meeting Schedule
 **Monday:** 5:00 - 5:15 Scrum Stand-up (15m) <br>
 **Tuesday:** 6:00 - 6:45 Sprint kick-off (45m) <br>
 **Wednesday:** 5:00 - 5:30 Overflow (30m) <br>
