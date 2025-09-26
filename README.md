@@ -1,6 +1,6 @@
 # Team-B
 # Team Name: 
-# Team Roles:
+# Team Roles
 **Project Manager:** Kate Martell <br>
 **Developer 1:** Isabel Layland <br>
 **Developer 2:** Nico Faragodumsch <br>
