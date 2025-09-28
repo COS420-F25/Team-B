@@ -1,5 +1,5 @@
 # Team-B
-# Team Name: 
+# Team Name: Bruen
 # Team Roles
 **Project Manager:** Kate Martell <br>
 **Developer 1:** Isabel Layland <br>
@@ -14,3 +14,5 @@
 **Saturday:** <br>
 **Sunday:** 6:00 - 6:15 End of sprint review (15m) <br>
 
+# Mission Statement
+Our mission is to turn ideas into impact with teamwork and creativity.
