@@ -25,3 +25,24 @@ AI is, in many ways, the start of a third industrial revolution; which implies t
 ## Problem Statement 02: Neurodiverse auditory overwhelm
 
 Many individuals within the neurodiversity umbrella have challenges with regulating external stimuli, particularly auditory input. This often creates a sense of overwhelm- especially with little way to know how loud, bright, or overstimulating a circumstance might be before going into it. This extends to online spaces, where videos, music, and podcasts are extremely unpredictable in their levels of audio stimulation. While volume controls, captions, and accessibility settings exist, these tools only apply once the media is already playing, leaving the variable unpredictability intact. The central issue here is that prior solutions react after the overwhelm has already occurred, rather than addressing the core cause of unpredictability itself. How can digital media be designed in a way that reduces this unpredictability and helps neurodiverse individuals better anticipate and manage auditory overwhelm?
+
+#Install & Update Instructions 
+##TO INSTALL:  
+git clone https://github.com/COS420-F25/Team-B.git //make a copy of the setup
+cd Team-B //navigate to folder
+npm install //just in case it hasn't been downloaded do this
+npm start //launch browser with HTML preview
+
+##TO STAY UP TO DATE: 
+git pull origin main //do this to get updated version
+git checkout -b feature-branch-name //make your own branch name if needed
+
+##TO PUSH/UPDATE GITHUB: 
+git add .
+git commit -m "Describe what changed" //add detail on what you changed for documentation
+git push -u origin feature-branch-name
+
+##TO RUN THE PROJECT:
+npm start
+
+
