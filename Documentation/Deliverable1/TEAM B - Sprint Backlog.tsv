@@ -1,0 +1,55 @@
+Title	URL	Status	Priority	Story Type	Estimate (Story Points)	Points Completed	Assignees	Contributors and % contribution	Quality Reviewer	Start date	End date (ready for QC by)	Deliverable / Sprint	Milestone
+Create an Enviornment	https://github.com/COS420-F25/Team-B/issues/68	Done	High				C-K77					D1	
+Update Deliverable 1 sprint review	https://github.com/COS420-F25/Team-B/issues/80	In Progress					C-K77, kateamartell, nicofaragodumsch						
+Update Google Drive with screenshot showing environment running	https://github.com/COS420-F25/Team-B/issues/87	In Progress					kateamartell, nicofaragodumsch						
+At least 2-3 low-fidelity wireframes of the most important features	https://github.com/COS420-F25/Team-B/issues/79	In Progress					nicofaragodumsch					D1	
+As a user, I want interactive activities that let me experiment with AI tools so that I can learn through hands-on experience.	https://github.com/COS420-F25/Team-B/issues/60	Product Backlog											
+As a user, I want to have real-time feedback on my checks for understanding, so that I can alter my approach as I go.	https://github.com/COS420-F25/Team-B/issues/67	Product Backlog											
+As a user, I want to understand how AI works, so I can better gauge the accuracy of claims about AI.	https://github.com/COS420-F25/Team-B/issues/50	Product Backlog											
+As a user, I want to see cited sources, so I can verify and trust what I've learned.	https://github.com/COS420-F25/Team-B/issues/51	Product Backlog											
+As a user, I want learning materials to be as concise as possible, so that I’m not wasting time I could be using to do other things.	https://github.com/COS420-F25/Team-B/issues/66	Product Backlog											
+As a user, I want to learn about the sustainability of AI, so I can know how much to limit my reliance.	https://github.com/COS420-F25/Team-B/issues/49	Product Backlog											
+As a user, I want to visualize how AI “thinks” so that I can better understand what is going on when I submit a prompt.	https://github.com/COS420-F25/Team-B/issues/54	Product Backlog											
+As a user, I want to learn about the weaknesses of AI so I can avoid using it in those situations.	https://github.com/COS420-F25/Team-B/issues/53	Product Backlog											
+As a user, I want to be more informed on the ethical considerations, so I can use the tool responsibly and in an informed manner.	https://github.com/COS420-F25/Team-B/issues/56	Product Backlog											
+As a user, I want instructions on how to design effective prompts, so that I can use AI tools more effectively and get better results.	https://github.com/COS420-F25/Team-B/issues/57	Product Backlog											
+As a user, I want to explore real-world examples of AI applications to see how AI is utilized across various industries.	https://github.com/COS420-F25/Team-B/issues/58	Product Backlog											
+As a user, I want a clear overview of the benefits of AI literacy when I first open the app, so that I understand why investing my time in learning about AI is valuable.	https://github.com/COS420-F25/Team-B/issues/65	Product Backlog											
+As a user, I want to understand the legal implications of using these tools to ensure I am complying with legal standards and recommendations.	https://github.com/COS420-F25/Team-B/issues/55	Product Backlog											
+As a user, I want to discover how AI affects privacy and data security so that I can make informed choices about sharing information.	https://github.com/COS420-F25/Team-B/issues/61	Product Backlog											
+As a user, I want to learn how bias in training data affects what I see when I use AI, so that I can be cognizant of whether or not AI generated content is reinforcing my own biases.	https://github.com/COS420-F25/Team-B/issues/62	Product Backlog											
+As a user, I want to learn what happens to my ownership over my materials that I upload to an AI generator once I hit “generate”, so that I can make informed choices about what I upload.	https://github.com/COS420-F25/Team-B/issues/63	Product Backlog											
+As a user, I want a learning experience that can load even when I’m in an area with bad internet so that my learning isn’t hindered by unnecessary frustration.	https://github.com/COS420-F25/Team-B/issues/64	Product Backlog											
+As a user, I want to compare traditional problem-solving methods with AI-driven ones so that I can understand AI’s unique advantages and potential downsides.	https://github.com/COS420-F25/Team-B/issues/59	Product Backlog											
+Duplicate: As a user, I want to learn about the weaknesses of AI so I can avoid using it in those situations.	https://github.com/COS420-F25/Team-B/issues/52	Product Backlog											
+Deliverable 1: Add correct problem statement	https://github.com/COS420-F25/Team-B/issues/33	Done					nicofaragodumsch						
+Deliverable 1: Create Issues Based on  Product Description Comments	https://github.com/COS420-F25/Team-B/issues/32	Done					nicofaragodumsch						
+Write 15 – 30 functional requirements	https://github.com/COS420-F25/Team-B/issues/77	Done					nicofaragodumsch					D1	
+Deliverable 1: Kickoff Export	https://github.com/COS420-F25/Team-B/issues/46	Done					nicofaragodumsch					D1	
+Deliverable 1: Make "Instead of improving AI performance" sentence more clear	https://github.com/COS420-F25/Team-B/issues/37	Done					kateamartell					D1	
+Deliverable 1: Create Sprint Backlog	https://github.com/COS420-F25/Team-B/issues/48	Done					kateamartell					D1	
+Deliverable 1: Create Product Backlog	https://github.com/COS420-F25/Team-B/issues/47	Done					kateamartell					D1	
+Deliverable 1: Revise User Stories	https://github.com/COS420-F25/Team-B/issues/69	Done					kateamartell						
+Deliverable 1: Quality Check Issue #37	https://github.com/COS420-F25/Team-B/issues/41	Done					C-K77						
+Deliverable 1: Decide whether to keep claim that both adults and children will be able to use this platform: if yes, add concrete example	https://github.com/COS420-F25/Team-B/issues/36	Done					C-K77					D1	
+Deliverable 1: Fix  "While Prompt Perfect helps users use AI more efficiently" sentence	https://github.com/COS420-F25/Team-B/issues/38	Done					kateamartell					D1	
+Write 5-10 Non-functional requirements	https://github.com/COS420-F25/Team-B/issues/78	Done					nicofaragodumsch					D1	Deliverable 1
+Deliverable 1: Create Kanban	https://github.com/COS420-F25/Team-B/issues/70	Done					kateamartell						
+Send ping when README complete to team	https://github.com/COS420-F25/Team-B/issues/81	Done					C-K77						
+Deliverable 1: Edit "repackage" sentence on Group B Deliverable 0 Document	https://github.com/COS420-F25/Team-B/issues/34	Done					AppreciativeWalrus					D1	
+Write a README file	https://github.com/COS420-F25/Team-B/issues/73	Done					C-K77						
+Watch video	https://github.com/COS420-F25/Team-B/issues/71	Done					C-K77						
+Deliverable 1: Give concrete example of how app will implement literal examples instead of metaphors	https://github.com/COS420-F25/Team-B/issues/35	Done					C-K77					D1	
+run the command line to create react link	https://github.com/COS420-F25/Team-B/issues/72	Done					C-K77						
+Create a simple homepage- create a white background	https://github.com/COS420-F25/Team-B/issues/74	Done					C-K77						
+Confirm that README instructions implement successfuly	https://github.com/COS420-F25/Team-B/issues/84	Done					nicofaragodumsch						
+Quality Check- Banner w/ Quote	https://github.com/COS420-F25/Team-B/issues/86	Done					nicofaragodumsch						
+Create a simple homepage- create a homepage banner title for site	https://github.com/COS420-F25/Team-B/issues/75	Done					C-K77						
+Quality check- Background	https://github.com/COS420-F25/Team-B/issues/85	Done					nicofaragodumsch						
+push reach environment to github page	https://github.com/COS420-F25/Team-B/issues/76	Done					C-K77						
+Make folder Documentation/Deliverable1	https://github.com/COS420-F25/Team-B/issues/82	Done					nicofaragodumsch						Deliverable 1
+Deliverable 1: Quality Check Issue #38	https://github.com/COS420-F25/Team-B/issues/42	Todo / Sprint Backlog					nicofaragodumsch						
+Deliverable 1: Quality Check Issue #35	https://github.com/COS420-F25/Team-B/issues/39	Done					kateamartell						
+Deliverable 1: Quality Check Issue #36	https://github.com/COS420-F25/Team-B/issues/40	Done					kateamartell						
+Deliverable 1: Quality Check Issue #34	https://github.com/COS420-F25/Team-B/issues/43	Todo / Sprint Backlog					nicofaragodumsch						
+Upload Documents to Folder	https://github.com/COS420-F25/Team-B/issues/83	Todo / Sprint Backlog					nicofaragodumsch					D1	
