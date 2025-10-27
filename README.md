@@ -18,14 +18,9 @@
 Our mission is to turn ideas into impact with teamwork and creativity.
 
 # Problem Statements
-## Problem Statement 01: Access to AI information
+## Problem Statement: Access to AI information
 
 AI is, in many ways, the start of a third industrial revolution; which implies this technology will affect the way society as a whole exists and adapts to technology. As such, making sure that people have a solid understanding of the tool is essential. Articles and reporting on the topic are everywhere, yet they rarely portray AI in a truthful and comprehensible manner. There is significant misinformation and fearmongering, but also ambiguity and little direction in the areas of legality, ethics, and safety. Further, there are few robust training tools for educators, employers, and others that teach users how to leverage AI responsibly and effectively. While fact-checking pieces, industry blogs, and corporate whitepapers exist, they often oversimplify the issue or demonstrate clear bias (or worse, confidently frame the article in an ill-informed manner). As a whole, the root issue is access to reliable information: much of what is available is inaccurate or shows that the source does not fully understand the technology or the enormity of its implications. How can people be given more accessible, balanced, and reliable ways of learning about AI and its ethical, legal, and safety concerns?
-
-## Problem Statement 02: Neurodiverse auditory overwhelm
-
-Many individuals within the neurodiversity umbrella have challenges with regulating external stimuli, particularly auditory input. This often creates a sense of overwhelm- especially with little way to know how loud, bright, or overstimulating a circumstance might be before going into it. This extends to online spaces, where videos, music, and podcasts are extremely unpredictable in their levels of audio stimulation. While volume controls, captions, and accessibility settings exist, these tools only apply once the media is already playing, leaving the variable unpredictability intact. The central issue here is that prior solutions react after the overwhelm has already occurred, rather than addressing the core cause of unpredictability itself. How can digital media be designed in a way that reduces this unpredictability and helps neurodiverse individuals better anticipate and manage auditory overwhelm?
-
 
 
 # Install & Update Instructions 
