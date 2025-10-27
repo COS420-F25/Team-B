@@ -18,7 +18,7 @@
 Our mission is to turn ideas into impact with teamwork and creativity.
 
 # Problem Statement
-## Access to AI information
+### Access to AI information
 
 AI is, in many ways, the start of a third industrial revolution; which implies this technology will affect the way society as a whole exists and adapts to technology. As such, making sure that people have a solid understanding of the tool is essential. Articles and reporting on the topic are everywhere, yet they rarely portray AI in a truthful and comprehensible manner. There is significant misinformation and fearmongering, but also ambiguity and little direction in the areas of legality, ethics, and safety. Further, there are few robust training tools for educators, employers, and others that teach users how to leverage AI responsibly and effectively. While fact-checking pieces, industry blogs, and corporate whitepapers exist, they often oversimplify the issue or demonstrate clear bias (or worse, confidently frame the article in an ill-informed manner). As a whole, the root issue is access to reliable information: much of what is available is inaccurate or shows that the source does not fully understand the technology or the enormity of its implications. How can people be given more accessible, balanced, and reliable ways of learning about AI and its ethical, legal, and safety concerns?
 
