@@ -1,13 +1,22 @@
 import './App.css';
 import { AuthProvider, useAuth } from './AuthContext';
 import { AuthForm } from './Auth';
+import InfoPage from './TemplateInfoPage'
+import React, { useState } from 'react';
+
 
 function AppContent() {
   const { user, logout } = useAuth();
+  const [showInfo, setShowInfo] = useState(false);
+
 
   if (!user) {
     return <AuthForm />;
   }
+
+  if (showInfo) {
+  return <InfoPage onBack={() => setShowInfo(false)} />;
+}
 
   return (
     <div className="App"> 
@@ -27,6 +36,19 @@ function AppContent() {
           >
             Logout
           </button>
+          <button 
+          onClick={() => setShowInfo(true)}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: '#E0E0E0',
+            color: '#2F4432',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Info Page
+        </button>
         </div>
         
         <h1>TEAM B</h1>
