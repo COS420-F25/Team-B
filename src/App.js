@@ -6,7 +6,7 @@ import { useState } from 'react';
 function AppContent() {
   const { user, logout, loading } = useAuth();
   const [currentView, setCurrentView] = useState('home'); // 'home', 'chapter1', 'quiz1', etc.
-  const [completedModules, setCompletedModules] = useState([1, 2]); // Track completed modules
+  const [completedModules, setCompletedModules] = useState([]); // Track completed modules
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [showResults, setShowResults] = useState(false);
 
