@@ -3,7 +3,11 @@ import { AuthProvider, useAuth } from './AuthContext';
 import { AuthForm } from './Auth';
 
 function AppContent() {
-  const { user, logout } = useAuth();
+  const { user, logout, loading } = useAuth();
+
+  if (loading) {
+    return <div style={{ textAlign: 'center', marginTop: '50px' }}>Loading...</div>;
+  }
 
   if (!user) {
     return <AuthForm />;
@@ -13,7 +17,20 @@ function AppContent() {
     <div className="App"> 
       <div style={{ backgroundColor: "white", minHeight: "50vh", padding: "10vh", color: "#2F4432"}}>
         <div style={{ textAlign: 'right', marginBottom: '20px' }}>
-          <span style={{ marginRight: '15px' }}>Welcome, {user.name}!</span>
+          {user.photoURL && (
+            <img 
+              src={user.photoURL} 
+              alt="Profile" 
+              style={{ 
+                width: '32px', 
+                height: '32px', 
+                borderRadius: '50%', 
+                marginRight: '10px',
+                verticalAlign: 'middle'
+              }} 
+            />
+          )}
+          <span style={{ marginRight: '15px' }}>Welcome, {user.displayName}!</span>
           <button 
             onClick={logout}
             style={{
