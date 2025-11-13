@@ -1,26 +1,14 @@
-//This is a client-side demo implementation. For production:
-//Never store passwords in localStorage - use a secure backend!!
 import React, { useState } from 'react';
 import { useAuth } from './AuthContext';
 
 export const AuthForm = () => {
-  const [isLogin, setIsLogin] = useState(true);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
   const [error, setError] = useState('');
-  const { login, signup } = useAuth();
+  const { loginWithGoogle } = useAuth();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleGoogleSignIn = async () => {
     setError('');
-    
     try {
-      if (isLogin) {
-        await login(email, password);
-      } else {
-        await signup(email, password, name);
-      }
+      await loginWithGoogle();
     } catch (err) {
       setError(err.message);
     }
@@ -32,83 +20,53 @@ export const AuthForm = () => {
       margin: '50px auto', 
       padding: '30px',
       backgroundColor: '#f5f5f5',
-      borderRadius: '8px'
+      borderRadius: '8px',
+      textAlign: 'center'
     }}>
       <h2 style={{ color: '#2F4432', marginBottom: '20px' }}>
-        {isLogin ? 'Login' : 'Sign Up'}
+        Welcome to TEAM B
       </h2>
       
-      <form onSubmit={handleSubmit}>
-        {!isLogin && (
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            required
-            style={inputStyle}
-          />
-        )}
-        
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-          style={inputStyle}
-        />
-        
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-          style={inputStyle}
-        />
-        
-        {error && <p style={{ color: 'red', fontSize: '14px' }}>{error}</p>}
-        
-        <button 
-          type="submit"
-          style={{
-            ...inputStyle,
-            backgroundColor: '#2F4432',
-            color: 'white',
-            cursor: 'pointer',
-            fontWeight: 'bold'
-          }}
-        >
-          {isLogin ? 'Login' : 'Sign Up'}
-        </button>
-      </form>
-      
-      <p style={{ marginTop: '20px', fontSize: '14px' }}>
-        {isLogin ? "Don't have an account? " : "Already have an account? "}
-        <button
-          onClick={() => setIsLogin(!isLogin)}
-          style={{
-            background: 'none',
-            border: 'none',
-            color: '#2F4432',
-            cursor: 'pointer',
-            textDecoration: 'underline'
-          }}
-        >
-          {isLogin ? 'Sign Up' : 'Login'}
-        </button>
+      <p style={{ marginBottom: '30px', color: '#666' }}>
+        Sign in to continue
       </p>
+      
+      <button
+        onClick={handleGoogleSignIn}
+        style={{
+          width: '100%',
+          padding: '12px',
+          backgroundColor: 'white',
+          color: '#444',
+          border: '1px solid #ddd',
+          borderRadius: '4px',
+          fontSize: '16px',
+          cursor: 'pointer',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          gap: '10px',
+          fontWeight: '500'
+        }}
+      >
+        <svg width="18" height="18" viewBox="0 0 18 18">
+          <path fill="#4285F4" d="M16.51 8H8.98v3h4.3c-.18 1-.74 1.48-1.6 2.04v2.01h2.6a7.8 7.8 0 0 0 2.38-5.88c0-.57-.05-.66-.15-1.18z"/>
+          <path fill="#34A853" d="M8.98 17c2.16 0 3.97-.72 5.3-1.94l-2.6-2.01c-.71.48-1.62.77-2.7.77-2.07 0-3.83-1.4-4.45-3.28H2.18v2.07A7.98 7.98 0 0 0 8.98 17z"/>
+          <path fill="#FBBC05" d="M4.53 10.54a4.8 4.8 0 0 1 0-3.08V5.39H2.18a7.98 7.98 0 0 0 0 7.22l2.35-2.07z"/>
+          <path fill="#EA4335" d="M8.98 4.18c1.17 0 2.23.4 3.06 1.2l2.3-2.3A7.98 7.98 0 0 0 2.18 5.39l2.35 2.07c.62-1.88 2.38-3.28 4.45-3.28z"/>
+        </svg>
+        Sign in with Google
+      </button>
+      
+      {error && (
+        <p style={{ 
+          color: 'red', 
+          fontSize: '14px', 
+          marginTop: '15px' 
+        }}>
+          {error}
+        </p>
+      )}
     </div>
   );
-};
-
-const inputStyle = {
-  width: '100%',
-  padding: '12px',
-  marginBottom: '15px',
-  border: '1px solid #ddd',
-  borderRadius: '4px',
-  fontSize: '16px',
-  boxSizing: 'border-box'
 };
