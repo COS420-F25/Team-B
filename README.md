@@ -6,8 +6,8 @@
 **Designer:** Claire Kelley <br>
 # Meeting Schedule
 **Monday:** 5:00 - 5:15 Scrum Stand-up (15m) <br>
-**Tuesday:** 6:00 - 6:45 Sprint kick-off (45m) <br>
-**Wednesday:** 5:00 - 5:30 Overflow (30m) <br>
+**Tuesday:** 6:00 - 6:30 Overflow (30m) <br>
+**Wednesday:** 5:00 - 5:45 Sprint Kickoff <br>
 **Thursday:** 5:00 - 5:15 Scrum Stand-up (15m) <br>
 **Friday:** 5:00 - 5:30 Overflow (30 min) <br>
 **Saturday:** <br>
