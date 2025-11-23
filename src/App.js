@@ -1,56 +1,25 @@
+import './App.css';
 import React, { useState } from 'react';
 import { AuthProvider, useAuth } from './AuthContext';
 import { AuthForm } from './Auth';
 import InfoPage from './TemplateInfoPage';
-import FeedbackPage from './TemplateFeedbackPage';
 
 // Header Component
 function Header({ user, onLogout, onShowInfo }) {
   return (
-    <div style={{ 
-      textAlign: 'right', 
-      marginBottom: '40px',
-      padding: '0 40px'
-    }}>
+    <div className="header-container">
       {user.photoURL && (
         <img 
           src={user.photoURL} 
           alt="Profile" 
-          style={{ 
-            width: '32px', 
-            height: '32px', 
-            borderRadius: '50%', 
-            marginRight: '10px',
-            verticalAlign: 'middle'
-          }} 
+          className="profile-image"
         />
       )}
-      <span style={{ marginRight: '15px' }}>Welcome, {user.displayName}!</span>
-      <button 
-        onClick={onLogout}
-        style={{
-          padding: '8px 16px',
-          backgroundColor: '#2F4432',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer',
-          marginRight: '10px'
-        }}
-      >
+      <span className="welcome-text">Welcome, {user.displayName}!</span>
+      <button onClick={onLogout} className="btn btn-primary">
         Logout
       </button>
-      <button 
-        onClick={onShowInfo}
-        style={{
-          padding: '8px 16px',
-          backgroundColor: '#E0E0E0',
-          color: '#2F4432',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: 'pointer'
-        }}
-      >
+      <button onClick={onShowInfo} className="btn btn-secondary">
         Info Page
       </button>
     </div>
@@ -60,51 +29,18 @@ function Header({ user, onLogout, onShowInfo }) {
 // Module List Item Component
 function ModuleListItem({ chapter, completed, onChapterClick, onQuizClick }) {
   return (
-    <div style={{
-      fontSize: '24px',
-      marginBottom: '20px',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: '10px'
-    }}>
-      <span style={{ color: '#2F4432', fontWeight: '500' }}>
+    <div className="module-list-item">
+      <span className="module-chapter-label">
         Chapter {chapter}:
       </span>
-      <button
-        onClick={onChapterClick}
-        style={{
-          background: 'none',
-          border: 'none',
-          color: '#61dafb',
-          textDecoration: 'underline',
-          cursor: 'pointer',
-          fontSize: '24px',
-          padding: '0'
-        }}
-      >
+      <button onClick={onChapterClick} className="module-link">
         Link
       </button>
-      <span style={{ color: '#2F4432' }}>,</span>
-      <button
-        onClick={onQuizClick}
-        style={{
-          background: 'none',
-          border: 'none',
-          color: '#61dafb',
-          textDecoration: 'underline',
-          cursor: 'pointer',
-          fontSize: '24px',
-          padding: '0'
-        }}
-      >
+      <span className="module-separator">,</span>
+      <button onClick={onQuizClick} className="module-link">
         mini quiz
       </button>
-      <span style={{ 
-        fontSize: '32px',
-        color: completed ? '#ff6b6b' : '#ddd',
-        marginLeft: '5px'
-      }}>
+      <span className={`module-star ${completed ? 'completed' : ''}`}>
         ★
       </span>
     </div>
@@ -115,52 +51,22 @@ function ModuleListItem({ chapter, completed, onChapterClick, onQuizClick }) {
 function HomePage({ user, modules, onLogout, onShowInfo, onModuleClick }) {
   return (
     <div className="App"> 
-      <div style={{ 
-        backgroundColor: "white", 
-        minHeight: "100vh", 
-        padding: "20px",
-        color: "#2F4432"
-      }}>
+      <div className="page-container">
         <Header user={user} onLogout={onLogout} onShowInfo={onShowInfo} />
 
-        <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
-          <div style={{
-            backgroundColor: '#999',
-            padding: '40px',
-            marginBottom: '40px',
-            borderRadius: '8px'
-          }}>
-            <h1 style={{ 
-              color: 'white', 
-              fontSize: '72px', 
-              margin: '0',
-              fontWeight: 'bold',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
-            }}>
-              Gogy
-            </h1>
+        <div className="content-wrapper">
+          <div className="hero-banner">
+            <h1 className="hero-title">Gogy</h1>
           </div>
 
-          <p style={{ 
-            fontSize: '18px', 
-            lineHeight: '1.6',
-            marginBottom: '40px',
-            color: '#333'
-          }}>
+          <p className="intro-text">
             It is important to know stuff about AI Lorem ipsum dolor sit amet,
             consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
             Aenean massa. sem.
           </p>
 
           <div>
-            <h2 style={{ 
-              fontSize: '36px', 
-              fontWeight: 'bold',
-              marginBottom: '30px',
-              color: '#2F4432'
-            }}>
-              Modules:
-            </h2>
+            <h2 className="section-title">Modules:</h2>
 
             {modules.map((module) => (
               <ModuleListItem
@@ -187,41 +93,26 @@ function QuizQuestion({
   onAnswerSelect 
 }) {
   return (
-    <div style={{ 
-      backgroundColor: '#f5f5f5', 
-      padding: '30px', 
-      borderRadius: '8px',
-      marginBottom: '20px'
-    }}>
-      <h3 style={{ marginBottom: '20px' }}>Question {questionIndex + 1}:</h3>
-      <p style={{ marginBottom: '20px' }}>{question.question}</p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+    <div className="quiz-question-box">
+      <h3 className="question-number">Question {questionIndex + 1}:</h3>
+      <p className="question-text">{question.question}</p>
+      <div className="options-container">
         {question.options.map((option, oIndex) => {
           const isSelected = selectedAnswer === oIndex;
           const isCorrect = question.correct === oIndex;
-          let backgroundColor = 'white';
-          let borderColor = '#ddd';
           
+          let buttonClass = 'option-button';
           if (showResults && isSelected) {
-            backgroundColor = isCorrect ? '#d4edda' : '#f8d7da';
-            borderColor = isCorrect ? '#28a745' : '#dc3545';
+            buttonClass += isCorrect ? ' option-correct' : ' option-incorrect';
           } else if (isSelected) {
-            borderColor = '#2F4432';
+            buttonClass += ' option-selected';
           }
           
           return (
             <button
               key={oIndex}
               onClick={() => !showResults && onAnswerSelect(questionIndex, oIndex)}
-              style={{
-                padding: '15px',
-                backgroundColor,
-                border: `2px solid ${borderColor}`,
-                borderRadius: '4px',
-                cursor: showResults ? 'default' : 'pointer',
-                textAlign: 'left',
-                fontWeight: isSelected ? 'bold' : 'normal'
-              }}
+              className={buttonClass}
               disabled={showResults}
             >
               {String.fromCharCode(65 + oIndex)}) {option}
@@ -235,7 +126,7 @@ function QuizQuestion({
   );
 }
 
-// Quiz Component (without results - results now shown in FeedbackPage)
+// Quiz Component
 function Quiz({ 
   quizNum, 
   questions, 
@@ -246,11 +137,9 @@ function Quiz({
   const allAnswered = questions.every((q, idx) => selectedAnswers[idx] !== undefined);
 
   return (
-    <div style={{ marginTop: '40px' }}>
-      <h2 style={{ fontSize: '36px', marginBottom: '20px' }}>
-        Mini Quiz {quizNum}
-      </h2>
-      <p style={{ fontSize: '18px', lineHeight: '1.8', marginBottom: '30px' }}>
+    <div className="quiz-container">
+      <h2 className="quiz-title">Mini Quiz {quizNum}</h2>
+      <p className="quiz-description">
         Test your knowledge from Chapter {quizNum}!
       </p>
       
@@ -268,17 +157,7 @@ function Quiz({
       <button
         onClick={onSubmit}
         disabled={!allAnswered}
-        style={{
-          padding: '15px 30px',
-          backgroundColor: allAnswered ? '#2F4432' : '#ccc',
-          color: 'white',
-          border: 'none',
-          borderRadius: '4px',
-          cursor: allAnswered ? 'pointer' : 'not-allowed',
-          fontSize: '18px',
-          fontWeight: 'bold',
-          width: '100%'
-        }}
+        className={`submit-button ${allAnswered ? 'enabled' : 'disabled'}`}
       >
         Submit Quiz
       </button>
@@ -299,73 +178,23 @@ function QuizFeedbackPage({
   const percentage = Math.round((correctCount / totalQuestions) * 100);
 
   return (
-    <div 
-      style={{
-        backgroundColor: '#FFFFFF',
-        color: '#2F4432',
-        minHeight: '100vh',
-        padding: '5vh 10vw',
-        fontFamily: 'Arial, sans-serif',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'space-between',
-      }}
-    >
-      {/* Header */}
-      <header
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          borderBottom: '1px solid #ccc',
-          paddingBottom: '1rem',
-          marginBottom: '2rem',
-        }}
-      >
-        <h1 style={{ margin: 0, color: '#2F4432' }}>Gogy</h1>
-        <button 
-          onClick={onBack}
-          style={{
-            backgroundColor: '#E0E0E0',
-            color: '#2F4432',
-            border: 'none',
-            borderRadius: '4px',
-            padding: '8px 16px',
-            cursor: 'pointer',
-            fontWeight: 'bold',
-          }}
-        >
+    <div className="feedback-page">
+      <header className="feedback-header">
+        <h1 className="feedback-logo">Gogy</h1>
+        <button onClick={onBack} className="btn btn-secondary">
           ← Back to Main Page
         </button>
       </header>
 
-      {/* Main Feedback Area */}
-      <main
-        style={{
-          backgroundColor: '#f8f8f8',
-          borderRadius: '8px',
-          padding: '2rem',
-          boxShadow: '0 2px 6px rgba(0,0,0,0.1)',
-          flexGrow: 1,
-          overflowY: 'auto',
-        }}
-      >
-        <h1 style={{ color: '#2F4432', marginBottom: '1rem', padding: '1rem' }}>
+      <main className="feedback-main">
+        <h1 className="feedback-title">
           Chapter {quizNum} Quiz Results
         </h1>
-        <h2 style={{ color: '#2F4432', marginBottom: '1rem', padding: '1rem' }}>
+        <h2 className="feedback-score">
           Score: {correctCount} / {totalQuestions} ({percentage}%)
         </h2>
 
-        {/* Question Feedback List */}
-        <div 
-          style={{
-            display: 'flex',
-            flexDirection: 'column', 
-            gap: '1rem', 
-            padding: '1rem',
-          }}
-        >
+        <div className="feedback-questions-list">
           {questions.map((question, idx) => {
             const userAnswer = selectedAnswers[idx];
             const isCorrect = userAnswer === question.correct;
@@ -373,25 +202,19 @@ function QuizFeedbackPage({
             return (
               <div
                 key={idx}
-                style={{
-                  backgroundColor: '#FFFFFF',
-                  borderRadius: '8px',
-                  padding: '1rem',
-                  boxShadow: '0 1px 4px rgba(0,0,0,0.05)',
-                  borderLeft: `4px solid ${isCorrect ? '#28a745' : '#dc3545'}`
-                }}
+                className={`feedback-question-box ${isCorrect ? 'correct' : 'incorrect'}`}
               >
-                <h3 style={{ margin: 0, color: '#2F4432' }}>
+                <h3 className="feedback-question-header">
                   Question {idx + 1} {isCorrect ? '✓' : '✗'}
                 </h3>
-                <p style={{ margin: '0.5rem 0', color: '#333' }}>
+                <p className="feedback-question-text">
                   {question.question}
                 </p>
-                <p style={{ color: '#333' }}>
+                <p className="feedback-answer">
                   <strong>Your answer:</strong> {question.options[userAnswer] || 'Not answered'}
                 </p>
                 {!isCorrect && (
-                  <p style={{ color: '#333' }}>
+                  <p className="feedback-answer">
                     <strong>Correct answer:</strong> {question.options[question.correct]}
                   </p>
                 )}
@@ -401,35 +224,13 @@ function QuizFeedbackPage({
         </div>
       </main>
 
-      {/* Bottom Section */}
-      <footer
-        style={{
-          backgroundColor: '#f4f4f4',
-          marginTop: '3rem',
-          padding: '2rem',
-          textAlign: 'center',
-          borderTop: '1px solid #ccc',
-          borderRadius: '8px',
-          boxShadow: '0 -2px 6px rgba(0,0,0,0.1)',
-        }}
-      >
-        <h3 style={{ color: '#2F4432', marginBottom: '1rem' }}>
+      <footer className="feedback-footer">
+        <h3 className="feedback-footer-title">
           {percentage === 100 
             ? '🎉 Perfect Score! Want to try another quiz?' 
             : 'Want to try again?'}
         </h3>
-        <button
-          onClick={onRetry}
-          style={{
-            backgroundColor: '#2F4432',
-            color: 'white',
-            border: 'none',
-            padding: '10px 20px',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            fontSize: '1rem',
-          }}
-        >
+        <button onClick={onRetry} className="btn btn-primary">
           Retake Quiz
         </button>
       </footer>
@@ -450,42 +251,23 @@ function ChapterPage({
 
   return (
     <div className="App">
-      <div style={{ 
-        backgroundColor: "white", 
-        minHeight: "100vh", 
-        padding: "40px",
-        color: "#2F4432"
-      }}>
-        <button 
-          onClick={onBack}
-          style={{
-            padding: '10px 20px',
-            backgroundColor: '#2F4432',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            cursor: 'pointer',
-            marginBottom: '30px'
-          }}
-        >
+      <div className="page-container">
+        <button onClick={onBack} className="btn btn-primary back-button">
           ← Back to Home
         </button>
         
-        <div style={{ maxWidth: '800px', margin: '0 auto' }}>
-          <h1 style={{ fontSize: '48px', marginBottom: '30px' }}>
-            Chapter {chapterNum}
-          </h1>
-          <p style={{ fontSize: '18px', lineHeight: '1.8' }}>
+        <div className="content-wrapper">
+          <h1 className="chapter-title">Chapter {chapterNum}</h1>
+          <p className="chapter-text">
             This is the content for Chapter {chapterNum}. You can add your module content here - 
             text, images, videos, interactive elements, etc.
           </p>
-          <p style={{ fontSize: '18px', lineHeight: '1.8', marginTop: '20px' }}>
+          <p className="chapter-text">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
             incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
             exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
           </p>
 
-          {/* Quiz integrated at the bottom of the chapter */}
           <Quiz
             quizNum={chapterNum}
             questions={questions}
@@ -596,7 +378,6 @@ function AppContent() {
       setCompletedModules([...completedModules, chapterNum]);
     }
     
-    // Navigate to feedback page
     setCurrentView('feedback');
   };
 
@@ -612,7 +393,7 @@ function AppContent() {
   };
 
   if (loading) {
-    return <div style={{ textAlign: 'center', marginTop: '50px' }}>Loading...</div>;
+    return <div className="loading-container">Loading...</div>;
   }
 
   if (!user) {
@@ -623,7 +404,6 @@ function AppContent() {
     return <InfoPage onBack={() => setShowInfo(false)} />;
   }
 
-  // Show feedback page after quiz submission
   if (currentView === 'feedback' && currentQuizNum) {
     const questions = quizData[currentQuizNum] || [];
     return (
@@ -637,7 +417,6 @@ function AppContent() {
     );
   }
 
-  // Render chapter view
   if (currentView.startsWith('chapter')) {
     const chapterNum = parseInt(currentView.replace('chapter', ''));
     return (
@@ -652,35 +431,18 @@ function AppContent() {
     );
   }
 
-  // Render standalone quiz view (kept for backwards compatibility)
   if (currentView.startsWith('quiz')) {
     const quizNum = parseInt(currentView.replace('quiz', ''));
     const questions = quizData[quizNum] || [];
 
     return (
       <div className="App">
-        <div style={{ 
-          backgroundColor: "white", 
-          minHeight: "100vh", 
-          padding: "40px",
-          color: "#2F4432"
-        }}>
-          <button 
-            onClick={handleBackToHome}
-            style={{
-              padding: '10px 20px',
-              backgroundColor: '#2F4432',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              cursor: 'pointer',
-              marginBottom: '30px'
-            }}
-          >
+        <div className="page-container">
+          <button onClick={handleBackToHome} className="btn btn-primary back-button">
             ← Back to Home
           </button>
           
-          <div style={{ maxWidth: '800px', margin: '0 auto' }}>
+          <div className="content-wrapper">
             <Quiz
               quizNum={quizNum}
               questions={questions}
@@ -697,7 +459,6 @@ function AppContent() {
     );
   }
 
-  // Home view
   return (
     <HomePage
       user={user}

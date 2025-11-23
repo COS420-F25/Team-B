@@ -2,6 +2,360 @@
   text-align: center;
 }
 
+/* ===== GENERAL LAYOUT ===== */
+.page-container {
+  background-color: white;
+  min-height: 100vh;
+  padding: 20px;
+  color: #2F4432;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.loading-container {
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  border: none;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn-primary {
+  background-color: #2F4432;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #1f2d22;
+}
+
+.btn-secondary {
+  background-color: #E0E0E0;
+  color: #2F4432;
+}
+
+.btn-secondary:hover {
+  background-color: #d0d0d0;
+}
+
+.back-button {
+  margin-bottom: 30px;
+  padding: 10px 20px;
+}
+
+/* ===== HEADER ===== */
+.header-container {
+  text-align: right;
+  margin-bottom: 40px;
+  padding: 0 40px;
+}
+
+.profile-image {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.welcome-text {
+  margin-right: 15px;
+}
+
+/* ===== HOME PAGE ===== */
+.hero-banner {
+  background-color: #999;
+  padding: 40px;
+  margin-bottom: 40px;
+  border-radius: 8px;
+}
+
+.hero-title {
+  color: white;
+  font-size: 72px;
+  margin: 0;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.intro-text {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 40px;
+  color: #333;
+}
+
+.section-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  color: #2F4432;
+}
+
+/* ===== MODULE LIST ===== */
+.module-list-item {
+  font-size: 24px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.module-chapter-label {
+  color: #2F4432;
+  font-weight: 500;
+}
+
+.module-link {
+  background: none;
+  border: none;
+  color: #61dafb;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 24px;
+  padding: 0;
+}
+
+.module-link:hover {
+  color: #4fc3f7;
+}
+
+.module-separator {
+  color: #2F4432;
+}
+
+.module-star {
+  font-size: 32px;
+  color: #ddd;
+  margin-left: 5px;
+}
+
+.module-star.completed {
+  color: #ff6b6b;
+}
+
+/* ===== CHAPTER PAGE ===== */
+.chapter-title {
+  font-size: 48px;
+  margin-bottom: 30px;
+}
+
+.chapter-text {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-top: 20px;
+}
+
+/* ===== QUIZ ===== */
+.quiz-container {
+  margin-top: 40px;
+}
+
+.quiz-title {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.quiz-description {
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 30px;
+}
+
+.quiz-question-box {
+  background-color: #f5f5f5;
+  padding: 30px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.question-number {
+  margin-bottom: 20px;
+}
+
+.question-text {
+  margin-bottom: 20px;
+}
+
+.options-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.option-button {
+  padding: 15px;
+  background-color: white;
+  border: 2px solid #ddd;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: left;
+  font-weight: normal;
+}
+
+.option-button:hover:not(:disabled) {
+  background-color: #f9f9f9;
+}
+
+.option-button.option-selected {
+  border-color: #2F4432;
+  font-weight: bold;
+}
+
+.option-button.option-correct {
+  background-color: #d4edda;
+  border-color: #28a745;
+  font-weight: bold;
+}
+
+.option-button.option-incorrect {
+  background-color: #f8d7da;
+  border-color: #dc3545;
+  font-weight: bold;
+}
+
+.option-button:disabled {
+  cursor: default;
+}
+
+.submit-button {
+  padding: 15px 30px;
+  border: none;
+  border-radius: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.submit-button.enabled {
+  background-color: #2F4432;
+  color: white;
+  cursor: pointer;
+}
+
+.submit-button.enabled:hover {
+  background-color: #1f2d22;
+}
+
+.submit-button.disabled {
+  background-color: #ccc;
+  color: white;
+  cursor: not-allowed;
+}
+
+/* ===== FEEDBACK PAGE ===== */
+.feedback-page {
+  background-color: #FFFFFF;
+  color: #2F4432;
+  min-height: 100vh;
+  padding: 5vh 10vw;
+  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.feedback-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.feedback-logo {
+  margin: 0;
+  color: #2F4432;
+}
+
+.feedback-main {
+  background-color: #f8f8f8;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.feedback-title {
+  color: #2F4432;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.feedback-score {
+  color: #2F4432;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.feedback-questions-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.feedback-question-box {
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+
+.feedback-question-box.correct {
+  border-left: 4px solid #28a745;
+}
+
+.feedback-question-box.incorrect {
+  border-left: 4px solid #dc3545;
+}
+
+.feedback-question-header {
+  margin: 0;
+  color: #2F4432;
+}
+
+.feedback-question-text {
+  margin: 0.5rem 0;
+  color: #333;
+}
+
+.feedback-answer {
+  color: #333;
+  margin: 0.5rem 0;
+}
+
+.feedback-footer {
+  background-color: #f4f4f4;
+  margin-top: 3rem;
+  padding: 2rem;
+  text-align: center;
+  border-top: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 -2px 6px rgba(0,0,0,0.1);
+}
+
+.feedback-footer-title {
+  color: #2F4432;
+  margin-bottom: 1rem;
+}
+
+/* ===== LEGACY STYLES (kept for compatibility) ===== */
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -34,5 +388,28 @@
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 48px;
+  }
+  
+  .section-title {
+    font-size: 28px;
+  }
+  
+  .module-list-item {
+    font-size: 18px;
+  }
+  
+  .quiz-title, .chapter-title {
+    font-size: 32px;
+  }
+  
+  .feedback-page {
+    padding: 2vh 5vw;
   }
 }
