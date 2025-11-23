@@ -96,3 +96,37 @@ function TemplateFeedbackPage ({ onBack}){
     </main>
 
 {/*Bottom Section */}
+<footer
+        style={{
+          backgroundColor: '#f4f4f4',
+          marginTop: '3rem',
+          padding: '2rem',
+          textAlign: 'center',
+          borderTop: '1px solid #ccc',
+          borderRadius: '8px',
+          boxShadow: '0 -2px 6px rgba(0,0,0,0.1)',
+        }}
+      >
+        <h3 style={{ color: '#2F4432', marginBottom: '1rem' }}>
+          Want to try again?
+        </h3>
+        <button
+          onClick={() => {}}
+          style={{
+            backgroundColor: '#2F4432',
+            color: 'white',
+            border: 'none',
+            padding: '10px 20px',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            fontSize: '1rem',
+          }}
+        >
+          Retake Quiz
+        </button>
+      </footer>
+    </div>
+  );
+}
+
+export default TemplateFeedbackPage;
