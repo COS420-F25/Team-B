@@ -1,6 +1,16 @@
 import './App.css';
 import { AuthProvider, useAuth } from './AuthContext';
 import { AuthForm } from './Auth';
+<<<<<<< HEAD
+import InfoPage from './TemplateInfoPage'
+import React, { useState } from 'react';
+
+
+function AppContent() {
+  const { user, logout } = useAuth();
+  const [showInfo, setShowInfo] = useState(false);
+
+=======
 import { useState } from 'react';
 
 function AppContent() {
@@ -13,11 +23,18 @@ function AppContent() {
   if (loading) {
     return <div style={{ textAlign: 'center', marginTop: '50px' }}>Loading...</div>;
   }
+>>>>>>> 45f9fbfc4558a4fb885731b70b2749a16b2fa59d
 
   if (!user) {
     return <AuthForm />;
   }
 
+<<<<<<< HEAD
+  if (showInfo) {
+  return <InfoPage onBack={() => setShowInfo(false)} />;
+}
+
+=======
   // Quiz questions for each module
   const quizData = {
     1: [
@@ -322,6 +339,7 @@ function AppContent() {
   }
 
   // Home view
+>>>>>>> 45f9fbfc4558a4fb885731b70b2749a16b2fa59d
   return (
     <div className="App"> 
       <div style={{ 
@@ -363,6 +381,19 @@ function AppContent() {
           >
             Logout
           </button>
+          <button 
+          onClick={() => setShowInfo(true)}
+          style={{
+            padding: '8px 16px',
+            backgroundColor: '#E0E0E0',
+            color: '#2F4432',
+            border: 'none',
+            borderRadius: '4px',
+            cursor: 'pointer'
+          }}
+        >
+          Info Page
+        </button>
         </div>
 
         {/* Main content */}
