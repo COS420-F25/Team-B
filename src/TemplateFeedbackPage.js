@@ -58,7 +58,41 @@ function TemplateFeedbackPage ({ onBack}){
         <h2 style={{color: '#2F4432', marginBottom: '1rem', padding:'1rem'}}>
             Score: X / Y (Z%)
         </h2>
+
+        {/*Question Feedback List */} 
+        <div 
+            style ={{
+                display: 'flex',
+                flexDirection: 'column', 
+                gap: '1rem', 
+                padding: '1rem',
+            }}
+            >
+
+            {/* Example Question Box */}
+            <div
+                style={{
+                    backgroundColor: '#FFFFFF',
+                    borderRadius: '8px',
+                    padding: '1rem',
+                    boxShadow: '0 1px 4px rgba(0,0,0,0.05)',
+                }}
+            >
+            <h3 style = {{margin: 0, color: '#2F4432'}}> Question #</h3>
+            <p style ={{ margin: '0.5rem 0', color:'#333'}}>
+                SAMPLE QUESTION TEXT GOES HERE
+            </p>
+            <p style={{color: '#333'}}>
+                <strong>Your answer:</strong> USER ANSWER
+            </p>
+            <p style= {{color: '#333'}}>
+                <strong> Correct answer </strong> CORRECT ANSWER
+            </p>
+            </div>
+
+            {/*DUPLICATE THIS SECTION BLOCK FOR EACH QUESTION*/}
+
+            </div>
     </main>
-</div>
-    }
-}
+
+{/*Bottom Section */}
