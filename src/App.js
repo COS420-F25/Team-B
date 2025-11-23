@@ -3,6 +3,8 @@ import React, { useState } from 'react';
 import { AuthProvider, useAuth } from './AuthContext';
 import { AuthForm } from './Auth';
 import InfoPage from './TemplateInfoPage';
+import { getChapterContent, getAllChapterNumbers } from './ChapterContent';
+import { getQuizQuestions, calculateQuizScore } from './QuizContent';
 
 // Header Component
 function Header({ user, onLogout, onShowInfo }) {
@@ -173,9 +175,7 @@ function QuizFeedbackPage({
   onBack, 
   onRetry 
 }) {
-  const correctCount = questions.filter((q, idx) => selectedAnswers[idx] === q.correct).length;
-  const totalQuestions = questions.length;
-  const percentage = Math.round((correctCount / totalQuestions) * 100);
+  const score = calculateQuizScore(quizNum, selectedAnswers);
 
   return (
     <div className="feedback-page">
@@ -191,7 +191,7 @@ function QuizFeedbackPage({
           Chapter {quizNum} Quiz Results
         </h1>
         <h2 className="feedback-score">
-          Score: {correctCount} / {totalQuestions} ({percentage}%)
+          Score: {score.correct} / {score.total} ({score.percentage}%)
         </h2>
 
         <div className="feedback-questions-list">
@@ -226,7 +226,7 @@ function QuizFeedbackPage({
 
       <footer className="feedback-footer">
         <h3 className="feedback-footer-title">
-          {percentage === 100 
+          {score.isPerfect 
             ? '🎉 Perfect Score! Want to try another quiz?' 
             : 'Want to try again?'}
         </h3>
@@ -241,13 +241,13 @@ function QuizFeedbackPage({
 // Chapter Page Component
 function ChapterPage({ 
   chapterNum, 
-  quizData, 
   selectedAnswers, 
   onBack, 
   onAnswerSelect, 
   onQuizSubmit
 }) {
-  const questions = quizData[chapterNum] || [];
+  const content = getChapterContent(chapterNum);
+  const questions = getQuizQuestions(chapterNum);
 
   return (
     <div className="App">
@@ -257,24 +257,23 @@ function ChapterPage({
         </button>
         
         <div className="content-wrapper">
-          <h1 className="chapter-title">Chapter {chapterNum}</h1>
-          <p className="chapter-text">
-            This is the content for Chapter {chapterNum}. You can add your module content here - 
-            text, images, videos, interactive elements, etc.
-          </p>
-          <p className="chapter-text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          </p>
+          <h1 className="chapter-title">{content.title}</h1>
+          
+          {content.sections.map((section, index) => (
+            <p key={index} className="chapter-text">
+              {section.content}
+            </p>
+          ))}
 
-          <Quiz
-            quizNum={chapterNum}
-            questions={questions}
-            selectedAnswers={selectedAnswers}
-            onAnswerSelect={onAnswerSelect}
-            onSubmit={onQuizSubmit}
-          />
+          {questions.length > 0 && (
+            <Quiz
+              quizNum={chapterNum}
+              questions={questions}
+              selectedAnswers={selectedAnswers}
+              onAnswerSelect={onAnswerSelect}
+              onSubmit={onQuizSubmit}
+            />
+          )}
         </div>
       </div>
     </div>
@@ -290,77 +289,12 @@ function AppContent() {
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [currentQuizNum, setCurrentQuizNum] = useState(null);
 
-  // Quiz data
-  const quizData = {
-    1: [
-      {
-        question: "What does AI stand for?",
-        options: ["Artificial Intelligence", "Advanced Internet", "Automated Information", "Applied Innovation"],
-        correct: 0
-      },
-      {
-        question: "Which of these is an example of AI?",
-        options: ["A calculator", "A voice assistant like Siri", "A text editor", "A web browser"],
-        correct: 1
-      }
-    ],
-    2: [
-      {
-        question: "What is machine learning?",
-        options: ["Teaching machines to learn from data", "Programming robots", "Creating websites", "Building computers"],
-        correct: 0
-      },
-      {
-        question: "Which company developed ChatGPT?",
-        options: ["Google", "Microsoft", "OpenAI", "Apple"],
-        correct: 2
-      }
-    ],
-    3: [
-      {
-        question: "What is neural network inspired by?",
-        options: ["Computer circuits", "The human brain", "The internet", "Math equations"],
-        correct: 1
-      },
-      {
-        question: "What does NLP stand for in AI?",
-        options: ["Natural Language Processing", "New Learning Protocol", "Neural Link Program", "Network Language Platform"],
-        correct: 0
-      }
-    ],
-    4: [
-      {
-        question: "What is deep learning?",
-        options: ["Learning underwater", "A subset of machine learning", "A type of database", "A programming language"],
-        correct: 1
-      },
-      {
-        question: "Which AI can generate images from text?",
-        options: ["Excel", "PowerPoint", "DALL-E", "Photoshop"],
-        correct: 2
-      }
-    ],
-    5: [
-      {
-        question: "What is the main concern about AI ethics?",
-        options: ["Cost", "Bias and fairness", "Speed", "Size"],
-        correct: 1
-      },
-      {
-        question: "What is reinforcement learning?",
-        options: ["Learning by trial and error", "Learning from books", "Learning languages", "Learning to code"],
-        correct: 0
-      }
-    ]
-  };
-
-  const modules = [
-    { chapter: 1, completed: completedModules.includes(1) },
-    { chapter: 2, completed: completedModules.includes(2) },
-    { chapter: 3, completed: completedModules.includes(3) },
-    { chapter: 4, completed: completedModules.includes(4) },
-    { chapter: 5, completed: completedModules.includes(5) },
-  ];
+  // Get all available chapters dynamically
+  const chapterNumbers = getAllChapterNumbers();
+  const modules = chapterNumbers.map(chapter => ({
+    chapter,
+    completed: completedModules.includes(chapter)
+  }));
 
   const handleAnswerSelect = (questionIndex, optionIndex) => {
     setSelectedAnswers({
@@ -371,10 +305,9 @@ function AppContent() {
 
   const handleQuizSubmit = (chapterNum) => {
     setCurrentQuizNum(chapterNum);
-    const questions = quizData[chapterNum] || [];
-    const allCorrect = questions.every((q, idx) => selectedAnswers[idx] === q.correct);
+    const score = calculateQuizScore(chapterNum, selectedAnswers);
     
-    if (allCorrect && !completedModules.includes(chapterNum)) {
+    if (score.isPerfect && !completedModules.includes(chapterNum)) {
       setCompletedModules([...completedModules, chapterNum]);
     }
     
@@ -405,7 +338,7 @@ function AppContent() {
   }
 
   if (currentView === 'feedback' && currentQuizNum) {
-    const questions = quizData[currentQuizNum] || [];
+    const questions = getQuizQuestions(currentQuizNum);
     return (
       <QuizFeedbackPage
         quizNum={currentQuizNum}
@@ -422,7 +355,6 @@ function AppContent() {
     return (
       <ChapterPage
         chapterNum={chapterNum}
-        quizData={quizData}
         selectedAnswers={selectedAnswers}
         onBack={handleBackToHome}
         onAnswerSelect={handleAnswerSelect}
@@ -433,7 +365,7 @@ function AppContent() {
 
   if (currentView.startsWith('quiz')) {
     const quizNum = parseInt(currentView.replace('quiz', ''));
-    const questions = quizData[quizNum] || [];
+    const questions = getQuizQuestions(quizNum);
 
     return (
       <div className="App">
