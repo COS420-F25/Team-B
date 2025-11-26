@@ -29,6 +29,8 @@ jobs:
         run: npm ci
 
       - name: Build project
+		env:
+   		 CI: ""
         run: npm run build
 
       - name: Run tests (CI mode)
