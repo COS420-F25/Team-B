@@ -62,9 +62,12 @@ function HomePage({ user, modules, onLogout, onShowInfo, onModuleClick }) {
           </div>
 
           <p className="intro-text">
-            It is important to know stuff about AI Lorem ipsum dolor sit amet,
-            consectetuer adipiscing elit. Aenean commodo ligula eget dolor.
-            Aenean massa. sem.
+          Artificial Intelligence (AI) has become a foundational part of modern life, powering everything from voice assistants like Siri to
+           the automated systems that help us communicate, learn, and solve problems more efficiently. Knowing what AI stands for and recognizing 
+           everyday examples of it isn't just academic—it helps us understand the technology shaping our future. As AI continues to influence how we 
+           work, learn, and interact with the world, developing a basic understanding of its purpose, capabilities, and limitations empowers us to use 
+           it responsibly and confidently. This knowledge allows us to make informed decisions, adapt to new tools, and engage with emerging technologies
+            that will define the next generation of innovation.
           </p>
 
           <div>
