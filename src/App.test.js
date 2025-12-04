@@ -90,7 +90,7 @@ describe('Quiz Feature Tests', () => {
     
     
     // Go back to home
-    const backButton = screen.getByText(/Back to Home/i);
+    const backButton = screen.getByText(/Back to Main Page/i);
     fireEvent.click(backButton);
     
     // Note: Testing the star color change would require checking CSS/style
