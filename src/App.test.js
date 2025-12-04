@@ -85,8 +85,9 @@ describe('Quiz Feature Tests', () => {
     // Check for success message
     await waitFor(() => {
       expect(screen.getByText(/Perfect Score!/i)).toBeInTheDocument();
-      expect(screen.getByText(/Congratulations! You've completed Chapter 1!/i)).toBeInTheDocument();
+      expect(screen.getByText(/Chapter 1 Quiz Results/i)).toBeInTheDocument();
     });
+    
     
     // Go back to home
     const backButton = screen.getByText(/Back to Home/i);
