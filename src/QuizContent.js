@@ -17,11 +17,21 @@ const quizData = {
       question: "Which of these is an example of AI?",
       options: [
         "A calculator",
-        "A voice assistant like Siri",
+        "A LLM ",
         "A text editor",
         "A web browser"
       ],
       correct: 1
+    },
+    {
+      question: "What are the computations designed to mimic?",
+      options: [
+        "A starfish",
+        "Previous quantitative modeling systems",
+        "A red blood cell",
+        "A neuron",
+      ],
+      correct: 3
     }
   ],
   2: [
