@@ -82,7 +82,7 @@ function InfoPage({onBack}) {
           Ready to test your knowledge? (SECTION) Quiz
         </h3>
         <button
-          onClick={() => {}}
+          onClick={onBack}
           style={{
             backgroundColor: '#2F4432',
             color: 'white',

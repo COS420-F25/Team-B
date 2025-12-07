@@ -1,1 +1,33 @@
+name: Node.js CI
 
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+       CI: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "18"
+
+      - name: Install dependencies
+        run: npm install
+        working-directory: ${{ github.workspace }}
+
+      - name: Build application
+        run: npm run build
+        working-directory: ${{ github.workspace }}
+
+      - name: Run tests
+        run: npm test
+        working-directory: ${{ github.workspace }}
