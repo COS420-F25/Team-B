@@ -24,9 +24,6 @@ function Header({ user, onLogout, onShowInfo }) {
       <button onClick={onLogout} className="btn btn-primary">
         Logout
       </button>
-      <button onClick={onShowInfo} className="btn btn-secondary">
-        Info Page
-      </button>
     </div>
   );
 }

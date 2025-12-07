@@ -17,31 +17,41 @@ const quizData = {
       question: "Which of these is an example of AI?",
       options: [
         "A calculator",
-        "A voice assistant like Siri",
+        "A LLM ",
         "A text editor",
         "A web browser"
       ],
       correct: 1
+    },
+    {
+      question: "What are the computations designed to mimic?",
+      options: [
+        "A starfish",
+        "Previous quantitative modeling systems",
+        "A red blood cell",
+        "A neuron",
+      ],
+      correct: 3
     }
   ],
   2: [
     {
-      question: "What is machine learning?",
+      question: "What is data poisoning?",
       options: [
-        "Teaching machines to learn from data",
-        "Programming robots",
-        "Creating websites",
-        "Building computers"
+        "Malicious alteration of data",
+        "Injecting malware into a computer",
+        "Ransom cyber attack",
+        "Data that has been stolen"
       ],
       correct: 0
     },
     {
-      question: "Which company developed ChatGPT?",
+      question: "Which of the following would NOT result in a data leak?",
       options: [
-        "Google",
-        "Microsoft",
-        "OpenAI",
-        "Apple"
+        "Uploading resumes and cover letters to a model with full personal details",
+        "Copying in large spreadsheet data for AI to analyze",
+        "Asking for information about the French Revolution",
+        "Asking for assistance in improving internal policy documents, and copying the contents into the prompt line"
       ],
       correct: 2
     }
