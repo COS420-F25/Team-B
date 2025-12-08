@@ -58,22 +58,20 @@ const quizData = {
   ],
   3: [
     {
-      question: "What is neural network inspired by?",
+      question: "Where does the bias concern originate from with AI use?",
       options: [
-        "Computer circuits",
-        "The human brain",
-        "The internet",
-        "Math equations"
+        "AI forming independent opinions",
+        "Biased training data the AI learns from",
+        "Communication between bots",
+        "Neural networks"
       ],
       correct: 1
     },
     {
-      question: "What does NLP stand for in AI?",
+      question: "Can users easily see how the AI forms 'decisions'?",
       options: [
-        "Natural Language Processing",
-        "New Learning Protocol",
-        "Neural Link Program",
-        "Network Language Platform"
+        "No",
+        "Yes",
       ],
       correct: 0
     }
