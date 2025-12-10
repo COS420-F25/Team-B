@@ -214,10 +214,17 @@ function QuizFeedbackPage({
                   <strong>Your answer:</strong> {question.options[userAnswer] || 'Not answered'}
                 </p>
                 {!isCorrect && (
+                  <>
                   <p className="feedback-answer">
                     <strong>Correct answer:</strong> {question.options[question.correct]}
                   </p>
-                )}
+                  {question.explanation && (
+                    <p className="feedback-explanation">
+                      <strong>Explanation:</strong> {question.explanation}
+                    </p>
+                  )}
+                </>
+              )}
               </div>
             );
           })}
