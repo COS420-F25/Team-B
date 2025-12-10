@@ -78,46 +78,99 @@ const quizData = {
   ],
   4: [
     {
-      question: "What is deep learning?",
+      question: "Why do AI data centers use large amounts of water?",
       options: [
-        "Learning underwater",
-        "A subset of machine learning",
-        "A type of database",
-        "A programming language"
+        "To clean hardware components daily.",
+        "To keep servers cool and prevent overheating.",
+        "To generate electricity for the servers.",
+        "To improve internet connection speeds."
       ],
       correct: 1
     },
     {
-      question: "Which AI can generate images from text?",
+      question: "What environmental concern is associated with AI water consumption?",
       options: [
-        "Excel",
-        "PowerPoint",
-        "DALL-E",
-        "Photoshop"
+        "AI increases rainfall in local regions.",
+        "AI eliminates the need for municipal water treatment.",
+        "Data centers may compete with local communities for limited water resources.",
+        "AI automatically replenishes groundwater supplies."
       ],
       correct: 2
+    },
+    {
+      question: "What is one challenge related to understanding AI's water usage?",
+      options: [
+        "Too much public information is available about water reporting.",
+        "Water usage does not affect the environment at all.",
+        "AI requires no cooling and therefore no water.",
+        "Tech companies rarely disclose clear data about how much water their facilities use."
+      ],
+      correct: 3
+
     }
   ],
   5: [
     {
-      question: "What is the main concern about AI ethics?",
+      question: "Who introduced the concept of a 'universal machine' and the Turing Test?",
       options: [
-        "Cost",
-        "Bias and fairness",
-        "Speed",
-        "Size"
+        "John McCarthy",
+        "Alan Turing",
+        "Marvin Minsky",
+        "Herbert Simon"
       ],
       correct: 1
     },
     {
-      question: "What is reinforcement learning?",
+      question: "When was the term 'Artificial Intelligence' officially coined?",
       options: [
-        "Learning by trial and error",
-        "Learning from books",
-        "Learning languages",
-        "Learning to code"
+        "1942 at the ENIAC Symposium",
+        "1983 during the first AI Winter",
+        "1997 after IBM's Deep Blue match",
+        "1956 at the Dartmouth Conference",
+      ],
+      correct: 3
+    },
+    {
+      question: "What major development helped spark the modern era of AI beginning around 2012?",
+      options: [
+        "The invention of vacuum tubes",
+        "The creation of mechanical calculators",
+        "AI-generated artwork",
+        "The rise of deep learning and neural networks"
+      ],
+      correct: 3
+    }
+  ],
+  6: [
+    {
+      question: "What is one major reason AI training consumes large amounts of energy?",
+      options: [
+        "Training requires thousands of high-performance GPUs running complex calculations.",
+        "AI models need to be stored in physical filing cabinets.",
+        "AI systems must be operated underwater.",
+        "Training only occurs for a few seconds but repeats unnecessarily."
       ],
       correct: 0
+    },
+    {
+      question: "How can AI contribute to carbon emissions?",
+      options: [
+        "AI models physically burn fuel when making predictions.",
+        "AI directly emits carbon dioxide through vents.",
+        "Data centers are often powered by fossil-fuel-based electricity.",
+        "AI reduces emissions by default regardless of energy source."
+      ],
+      correct: 2
+    },
+    {
+      question: "Which strategy can reduce AI's overall energy footprint?",
+      options: [
+        "Using more GPUs even when unnecessary.",
+        "Optimizing neural networks through pruning or quantization.",
+        "Ignoring cooling system efficiency.",
+        "Running all computations on outdated hardware."
+      ],
+      correct: 1
     }
   ]
 };
