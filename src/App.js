@@ -5,6 +5,9 @@ import { AuthForm } from './Auth';
 import InfoPage from './TemplateInfoPage';
 import { getChapterContent, getAllChapterNumbers } from './ChapterContent';
 import { getQuizQuestions, calculateQuizScore } from './QuizContent';
+import { DatabaseProvider } from './database/DatabaseContext';
+import { useQuizResults } from './database/hooks/useQuizResults';
+import { useModules } from './database/hooks/useModules';
 
 // Header Component
 function Header({ user, onLogout, onShowInfo }) {
@@ -214,10 +217,17 @@ function QuizFeedbackPage({
                   <strong>Your answer:</strong> {question.options[userAnswer] || 'Not answered'}
                 </p>
                 {!isCorrect && (
+                  <>
                   <p className="feedback-answer">
                     <strong>Correct answer:</strong> {question.options[question.correct]}
                   </p>
-                )}
+                  {question.explanation && (
+                    <p className="feedback-explanation">
+                      <strong>Explanation:</strong> {question.explanation}
+                    </p>
+                  )}
+                </>
+              )}
               </div>
             );
           })}
@@ -283,9 +293,10 @@ function ChapterPage({
 // Main App Content Component
 function AppContent() {
   const { user, logout, loading } = useAuth();
+  const { markChapterCompleted, isChapterCompleted } = useModules();
+  const { addQuizResult } = useQuizResults();
   const [showInfo, setShowInfo] = useState(false);
   const [currentView, setCurrentView] = useState('home');
-  const [completedModules, setCompletedModules] = useState([]);
   const [selectedAnswers, setSelectedAnswers] = useState({});
   const [currentQuizNum, setCurrentQuizNum] = useState(null);
 
@@ -293,7 +304,7 @@ function AppContent() {
   const chapterNumbers = getAllChapterNumbers();
   const modules = chapterNumbers.map(chapter => ({
     chapter,
-    completed: completedModules.includes(chapter)
+    completed: isChapterCompleted(chapter)
   }));
 
   const handleAnswerSelect = (questionIndex, optionIndex) => {
@@ -307,8 +318,23 @@ function AppContent() {
     setCurrentQuizNum(chapterNum);
     const score = calculateQuizScore(chapterNum, selectedAnswers);
     
-    if (score.isPerfect && !completedModules.includes(chapterNum)) {
-      setCompletedModules([...completedModules, chapterNum]);
+    // Save quiz result to database
+    if (user) {
+      const quizResult = {
+        id: `quiz-${user.uid}-${chapterNum}-${Date.now()}`,
+        userId: user.uid,
+        chapter: chapterNum,
+        score: score,
+        answers: selectedAnswers,
+        submittedAt: Date.now(),
+        createdAt: Date.now(),
+      };
+      addQuizResult(quizResult);
+    }
+    
+    // Mark chapter as completed if perfect score
+    if (score.isPerfect && !isChapterCompleted(chapterNum)) {
+      markChapterCompleted(chapterNum);
     }
     
     setCurrentView('feedback');
@@ -405,8 +431,19 @@ function AppContent() {
 function App() {
   return (
     <AuthProvider>
-      <AppContent />
+      <AppWithDatabase />
     </AuthProvider>
+  );
+}
+
+// Inner component that has access to both Auth and Database contexts
+function AppWithDatabase() {
+  const { user } = useAuth();
+  
+  return (
+    <DatabaseProvider firebaseUser={user}>
+      <AppContent />
+    </DatabaseProvider>
   );
 }
 
