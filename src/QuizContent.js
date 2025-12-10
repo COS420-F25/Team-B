@@ -127,7 +127,7 @@ const quizData = {
       options: [
         "1942 at the ENIAC Symposium",
         "1983 during the first AI Winter",
-        "1997 after IBM’s Deep Blue match",
+        "1997 after IBM's Deep Blue match",
         "1956 at the Dartmouth Conference",
       ],
       correct: 3
