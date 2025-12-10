@@ -12,6 +12,7 @@ jest.mock('./AuthContext', () => ({
   AuthProvider: ({ children }) => <div>{children}</div>,
   useAuth: () => ({
     user: {
+      uid: 'test-uid',
       displayName: 'Test User',
       email: 'test@example.com',
       photoURL: null
@@ -21,6 +22,25 @@ jest.mock('./AuthContext', () => ({
   })
 }));
 
+// Mock DatabaseContext so the real useEffect with dispatch doesn't run
+jest.mock('./database/DatabaseContext', () => ({
+  DatabaseProvider: ({ children }) => <div>{children}</div>,
+}));
+
+// Mock useQuizResults hook
+jest.mock('./database/hooks/useQuizResults', () => ({
+  useQuizResults: () => ({
+    addQuizResult: jest.fn(),
+  }),
+}));
+
+// Mock useModules hook
+jest.mock('./database/hooks/useModules', () => ({
+  useModules: () => ({
+    markChapterCompleted: jest.fn(),
+    isChapterCompleted: () => false,
+  }),
+}));
 describe('Quiz Feature Tests', () => {
   test('should display quiz questions when clicking mini quiz link', () => {
     render(<App />);
