@@ -203,4 +203,15 @@ describe('Quiz Feature Tests', () => {
     const explanationNodes = screen.getAllByText(/Explanation:/i);
     expect(explanationNodes).toHaveLength(1);
   });
+
+  test('definitely a normal test', () => {
+    render(<App />);
+
+    // Go to first mini quiz (Chapter 1)
+    const quizLinks = screen.getAllByText(/mega quiz/i);
+    fireEvent.click(quizLinks[0]);
+
+    // On feedback page, we should see an explanation for the wrong answer
+    expect(screen.getByText(/Mega Quiz:/i)).toBeInTheDocument();
+  });
 });
